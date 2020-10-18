@@ -11,7 +11,7 @@ public class Main {
             System.out.println("Введите первое число");
             int firstNumber = scanner.nextInt();
             System.out.println("Введите операцию");
-            String f = scanner.nextLine();
+            String f = scanner.nextLine();  //без этой строки не работает. Странно
             userInput = scanner.nextLine();
 
             int secondNumber = 0;
