@@ -4,16 +4,17 @@ import java.util.Scanner;
 
 public class Main {
 
+    static int firstNumber = 0;
+    static int secondNumber = 0;
+    static String userInput = "";
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        String userInput = "";
         while (!"W".equals(userInput)) {
             System.out.println("Введите первое число");
-            int firstNumber = scanner.nextInt();
+            firstNumber = scanner.nextInt();
             System.out.println("Введите операцию");
             userInput = scanner.next();
-
-            int secondNumber = 0;
             if (!userInput.equals("!")) {
                 System.out.println("Введите второе число");
                 secondNumber = scanner.nextInt();
@@ -22,47 +23,47 @@ public class Main {
             double result = 0;
             switch (userInput) {
                 case "+":
-                    result = sum(firstNumber, secondNumber);
+                    result = sum();
                     break;
                 case "-":
-                    result = sub(firstNumber, secondNumber);
+                    result = sub();
                     break;
                 case "/":
                     if (secondNumber == 0) {
                         System.out.println("На ноль делить нельзя!");
                         break;
                     }
-                    result = div(firstNumber, secondNumber);
+                    result = div();
                     break;
                 case "*":
-                    result = mult(firstNumber, secondNumber);
+                    result = mult();
                     break;
                 case "!":
-                    result = fact(firstNumber);
+                    result = fact();
                     break;
                 default:
                     System.out.println("Не удалось посчитать!");
                     continue;
             }
-            System.out.println(firstNumber + userInput + ("!".equals(userInput) ? "" : secondNumber ) + " = " + result);
+            System.out.println(firstNumber + userInput + ("!".equals(userInput) ? "" : secondNumber) + " = " + result);
         }
         System.out.println("Выход из калькулятора");
     }
 
-    public static int sum (int numberOne, int numberTwo) {
-        return numberOne + numberTwo;
+    public static int sum() {
+        return firstNumber + secondNumber;
     }
 
-    public static int sub (int numberOne, int numberTwo) {
-        return numberOne - numberTwo;
+    public static int sub() {
+        return firstNumber - secondNumber;
     }
 
-    public static double div (int numberOne, int numberTwo) {
-        return ((double) numberOne) / numberTwo;
+    public static double div() {
+        return ((double) firstNumber) / secondNumber;
     }
 
-    public static int mult (int numberOne, int numberTwo) {
-        return numberOne * numberTwo;
+    public static int mult() {
+        return firstNumber * secondNumber;
     }
 
 // Реализация через FOR
@@ -74,10 +75,10 @@ public class Main {
 //        return result;
 //    }
 
-    public static int fact (int number) {
+    public static int fact() {
         int i = 1;
         int result = 1;
-        while (i <= number) {
+        while (i <= firstNumber) {
             result = result * i++;
         }
         return result;
