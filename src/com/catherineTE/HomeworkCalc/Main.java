@@ -11,8 +11,7 @@ public class Main {
             System.out.println("Введите первое число");
             int firstNumber = scanner.nextInt();
             System.out.println("Введите операцию");
-            String f = scanner.nextLine();  //без этой строки не работает. Странно
-            userInput = scanner.nextLine();
+            userInput = scanner.next();
 
             int secondNumber = 0;
             if (!userInput.equals("!")) {
@@ -47,31 +46,27 @@ public class Main {
                     System.out.println(firstNumber + userInput + " = " + result);
                     break;
                 default:
+                    System.out.println("Не удалось посчитать!");
                     break;
             }
-            System.out.println("Не удалось посчитать!");
         }
         System.out.println("Выход из калькулятора");
     }
 
     public static int sum (int numberOne, int numberTwo) {
-        int result = numberOne + numberTwo;
-        return result;
+        return numberOne + numberTwo;
     }
 
     public static int sub (int numberOne, int numberTwo) {
-        int result = numberOne - numberTwo;
-        return result;
+        return numberOne - numberTwo;
     }
 
     public static double div (int numberOne, int numberTwo) {
-        double result = numberOne / numberTwo;
-        return result;
+        return ((double) numberOne) / numberTwo;
     }
 
     public static int mult (int numberOne, int numberTwo) {
-        int result = numberOne * numberTwo;
-        return result;
+        return numberOne * numberTwo;
     }
 
 // Реализация через FOR
@@ -87,8 +82,7 @@ public class Main {
         int i = 1;
         int result = 1;
         while (i <= number) {
-            result = result * i;
-            i++;
+            result = result * i++;
         }
         return result;
     }
