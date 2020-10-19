@@ -23,11 +23,9 @@ public class Main {
             switch (userInput) {
                 case "+":
                     result = sum(firstNumber, secondNumber);
-                    System.out.println(firstNumber + userInput + secondNumber + " = " + result);
                     break;
                 case "-":
                     result = sub(firstNumber, secondNumber);
-                    System.out.println(firstNumber + userInput + secondNumber + " = " + result);
                     break;
                 case "/":
                     if (secondNumber == 0) {
@@ -35,20 +33,18 @@ public class Main {
                         break;
                     }
                     result = div(firstNumber, secondNumber);
-                    System.out.println(firstNumber + userInput + secondNumber + " = " + result);
                     break;
                 case "*":
                     result = mult(firstNumber, secondNumber);
-                    System.out.println(firstNumber + userInput + secondNumber + " = " + result);
                     break;
                 case "!":
                     result = fact(firstNumber);
-                    System.out.println(firstNumber + userInput + " = " + result);
                     break;
                 default:
                     System.out.println("Не удалось посчитать!");
-                    break;
+                    continue;
             }
+            System.out.println(firstNumber + userInput + ("!".equals(userInput) ? "" : secondNumber ) + " = " + result);
         }
         System.out.println("Выход из калькулятора");
     }
